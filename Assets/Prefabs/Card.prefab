@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9018673397292175791}
   - component: {fileID: 320505991059449862}
   - component: {fileID: 753508620434913297}
+  - component: {fileID: 8155582924742326346}
   m_Layer: 0
   m_Name: Back
   m_TagString: Untagged
@@ -256,6 +257,25 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!95 &8155582924742326346
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273703567084948684}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 197cc411e09c0c441a2381158e530d0b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3288097731978940765
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,8 +383,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -692,7 +712,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3840164767776835879}
   - component: {fileID: 6620446489759281187}
-  - component: {fileID: 1662733683956580742}
+  - component: {fileID: 916365087583185748}
+  - component: {fileID: 4903839960904457577}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -707,9 +728,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7794800523917518708}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0.70710677, w: 0.70710677}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.01, y: 1, z: 1}
   m_Children:
   - {fileID: 4664778908697787274}
   - {fileID: 7919475726387475245}
@@ -731,7 +752,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: 0
   tm: {fileID: 345932625735038786}
---- !u!114 &1662733683956580742
+--- !u!65 &916365087583185748
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7794800523917518708}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.8, z: 0.5}
+  m_Center: {x: -0.5, y: 0.4, z: 0.25}
+--- !u!114 &4903839960904457577
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

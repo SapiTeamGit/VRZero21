@@ -20,6 +20,6 @@ public class ShowScore : MonoBehaviour
 
     public void ShowScoree(int value)
     {
-         tm.text =$"Score: {value}";
+        tm.text = value.ToString();
     }
 }
