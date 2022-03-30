@@ -19,6 +19,7 @@ public class OpenDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //If the animation is done, we turn it off so we can look around
         if (playerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !playerAnimator.IsInTransition(0))
         {
             playerAnimator.enabled = false;

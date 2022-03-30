@@ -20,7 +20,7 @@ public class ScoreManager : MonoBehaviour
     public void ModifyScore(GameObject card)
     {
         CardObject cardObject = card.GetComponent<CardObject>();
-        Debug.Log("ModifyScore called");
+        //Debug.Log("ModifyScore called");
         score += cardObject.value;
         GameObject tm = GameObject.Find("Score");
         if(!tm)

@@ -50,6 +50,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardAnimation (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 334023393056473954, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
+      propertyPath: m_TagString
+      value: CardAnimation
+      objectReference: {fileID: 0}
     - target: {fileID: 724813425510184559, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -88,7 +92,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8969920216035415025, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.5
+      value: -0.95
       objectReference: {fileID: 0}
     - target: {fileID: 8969920216035415025, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
       propertyPath: m_LocalRotation.w
@@ -136,6 +140,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardAnimation (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 334023393056473954, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
+      propertyPath: m_TagString
+      value: CardAnimation
+      objectReference: {fileID: 0}
     - target: {fileID: 724813425510184559, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -174,7 +182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8969920216035415025, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.25
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 8969920216035415025, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
       propertyPath: m_LocalRotation.w
@@ -222,6 +230,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardAnimation (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 334023393056473954, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
+      propertyPath: m_TagString
+      value: CardAnimation
+      objectReference: {fileID: 0}
     - target: {fileID: 724813425510184559, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -260,7 +272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8969920216035415025, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.5
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 8969920216035415025, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
       propertyPath: m_LocalRotation.w
@@ -306,6 +318,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 334023393056473954, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
       propertyPath: m_Name
+      value: CardAnimation
+      objectReference: {fileID: 0}
+    - target: {fileID: 334023393056473954, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
+      propertyPath: m_TagString
       value: CardAnimation
       objectReference: {fileID: 0}
     - target: {fileID: 724813425510184559, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
@@ -394,6 +410,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardAnimation (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 334023393056473954, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
+      propertyPath: m_TagString
+      value: CardAnimation
+      objectReference: {fileID: 0}
     - target: {fileID: 724813425510184559, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -432,7 +452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8969920216035415025, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.75
+      value: -1.075
       objectReference: {fileID: 0}
     - target: {fileID: 8969920216035415025, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
       propertyPath: m_LocalRotation.w
@@ -480,6 +500,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardAnimation (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 334023393056473954, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
+      propertyPath: m_TagString
+      value: CardAnimation
+      objectReference: {fileID: 0}
     - target: {fileID: 724813425510184559, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -518,7 +542,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8969920216035415025, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.25
+      value: -0.35
       objectReference: {fileID: 0}
     - target: {fileID: 8969920216035415025, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
       propertyPath: m_LocalRotation.w
@@ -566,6 +590,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardAnimation (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 334023393056473954, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
+      propertyPath: m_TagString
+      value: CardAnimation
+      objectReference: {fileID: 0}
     - target: {fileID: 724813425510184559, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -604,7 +632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8969920216035415025, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.75
+      value: 1.075
       objectReference: {fileID: 0}
     - target: {fileID: 8969920216035415025, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
       propertyPath: m_LocalRotation.w
@@ -652,6 +680,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardAnimation (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 334023393056473954, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
+      propertyPath: m_TagString
+      value: CardAnimation
+      objectReference: {fileID: 0}
     - target: {fileID: 724813425510184559, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -690,7 +722,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8969920216035415025, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.5
+      value: 1.95
       objectReference: {fileID: 0}
     - target: {fileID: 8969920216035415025, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
       propertyPath: m_LocalRotation.w
@@ -738,6 +770,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardAnimation (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 334023393056473954, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
+      propertyPath: m_TagString
+      value: CardAnimation
+      objectReference: {fileID: 0}
     - target: {fileID: 724813425510184559, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -776,7 +812,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8969920216035415025, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.5
+      value: -0.7
       objectReference: {fileID: 0}
     - target: {fileID: 8969920216035415025, guid: 19b49ce9b69ad9d418c39f504efc2297, type: 3}
       propertyPath: m_LocalRotation.w
