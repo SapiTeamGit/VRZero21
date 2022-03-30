@@ -9,7 +9,6 @@ public class GetLevel : MonoBehaviour
     public List<GameObject> levels = new List<GameObject>();
     public TextMeshPro tm;
 
-    List<GameObject> cards;
 
     public void Awake()
     {
@@ -19,8 +18,7 @@ public class GetLevel : MonoBehaviour
             {
                 levels.Add(gos[i]);
             }
-        }
-            
+        } 
             
         if (levels.Count > 0)
         {
@@ -32,4 +30,16 @@ public class GetLevel : MonoBehaviour
         tm.text = levels[0].name;
     }
 
+    public void Update()
+    {
+        CheckIfGameEnded();
+    }
+
+    private void CheckIfGameEnded()
+    {
+        if (levels[0].transform.childCount == 0)
+        {
+            Debug.Log("Game Ended!");
+        }
+    }
 }
