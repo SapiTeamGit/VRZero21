@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
@@ -8,6 +9,11 @@ public class GetLevel : MonoBehaviour
 {
     public List<GameObject> levels = new List<GameObject>();
     public TextMeshPro tm;
+    public int nr;
+
+    public GameObject nextLevel;
+    [SerializeField] private Transform spawnPoint;
+
 
 
     public void Awake()
@@ -28,6 +34,16 @@ public class GetLevel : MonoBehaviour
             });
         }
         tm.text = levels[0].name;
+
+        string resultString = Regex.Match(levels[0].name, @"\d+").Value;
+        nr = Int32.Parse(resultString);
+        nr++;
+    }
+
+    public void Start()
+    {
+        nextLevel = Resources.Load("Assets/Prefabs/Levels/Level " + nr) as GameObject;
+        Debug.Log("the next level is: " + nextLevel.name + "ment");
     }
 
     public void Update()
@@ -37,9 +53,14 @@ public class GetLevel : MonoBehaviour
 
     private void CheckIfGameEnded()
     {
+        
+        //Debug.Log("The actual level is" + nr);
         if (levels[0].transform.childCount == 0)
         {
             Debug.Log("Game Ended!");
+            Destroy(levels[0]);
         }
     }
+
+
 }
