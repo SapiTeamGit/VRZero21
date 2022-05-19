@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
@@ -18,13 +19,14 @@ public class GetLevel : MonoBehaviour
     public void Awake()
     {
         GameObject[] gos = (GameObject[])FindObjectsOfType(typeof(GameObject));
-        for (int i = 0; i < gos.Length; i++) {
+        for (int i = 0; i < gos.Length; i++)
+        {
             if (gos[i].name.Contains("Level"))
             {
                 levels.Add(gos[i]);
             }
-        } 
-            
+        }
+
         if (levels.Count > 0)
         {
             levels.Sort(delegate (GameObject a, GameObject b)
@@ -32,11 +34,9 @@ public class GetLevel : MonoBehaviour
                 return (a.name).CompareTo(b.name);
             });
         }
-        tm.text = levels[0].name;
 
-        string resultString = Regex.Match(levels[0].name, @"\d+").Value;
-        nr = Int32.Parse(resultString);
-        nr++;
+        tm.text = levels[0].name;
+        levels = levels.Skip(nr).ToList();
     }
 
     public void Start()
@@ -72,7 +72,7 @@ public class GetLevel : MonoBehaviour
 
             tm.text = nextLevel.name;
             nextLevel = Resources.Load($"Prefabs/Levels/Level {++nr}") as GameObject;
-            PlayerPrefs.SetInt("SavedLevel", nr-1);
+            PlayerPrefs.SetInt("SavedLevel", nr - 1);
             PlayerPrefs.Save();
         }
     }
@@ -85,7 +85,28 @@ public class GetLevel : MonoBehaviour
             Debug.Log("Game data loaded!");
         }
         else
+        {
+            nr = 1;
             Debug.LogError("There is no save data!");
+        }
+
+        InitializeLevel();
     }
 
+    private void InitializeLevel()
+    {
+        nextLevel = Resources.Load("Prefabs/Levels/Level " + nr) as GameObject;
+        nextLevel.transform.localScale = new Vector3(0.5f, 1f, 0.5f);
+
+        nextLevel = Instantiate(nextLevel, spawnPoint.position, spawnPoint.rotation);
+        if (nextLevel.name.Contains("(Clone)"))
+        {
+            int pos = nextLevel.name.IndexOf("(Clone)");
+            nextLevel.name = nextLevel.name.Remove(pos);
+        }
+        levels[0] = nextLevel;
+
+        tm.text = nextLevel.name;
+        nextLevel = Resources.Load($"Prefabs/Levels/Level {++nr}") as GameObject;
+    }
 }
