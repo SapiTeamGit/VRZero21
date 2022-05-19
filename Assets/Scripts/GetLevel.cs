@@ -15,7 +15,6 @@ public class GetLevel : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
 
 
-
     public void Awake()
     {
         GameObject[] gos = (GameObject[])FindObjectsOfType(typeof(GameObject));
@@ -42,8 +41,9 @@ public class GetLevel : MonoBehaviour
 
     public void Start()
     {
-        nextLevel = Resources.Load("Assets/Prefabs/Levels/Level " + nr) as GameObject;
-        Debug.Log("the next level is: " + nextLevel.name + "ment");
+        LoadGame();
+        nextLevel = Resources.Load("Prefabs/Levels/Level " + nr) as GameObject;
+        //Debug.Log("the next level is: " + nextLevel.name + "ment");
     }
 
     public void Update()
@@ -53,14 +53,39 @@ public class GetLevel : MonoBehaviour
 
     private void CheckIfGameEnded()
     {
-        
+
         //Debug.Log("The actual level is" + nr);
         if (levels[0].transform.childCount == 0)
         {
+
             Debug.Log("Game Ended!");
             Destroy(levels[0]);
+            nextLevel.transform.localScale = new Vector3(0.5f, 1f, 0.5f);
+
+            nextLevel = Instantiate(nextLevel, spawnPoint.position, spawnPoint.rotation);
+            if (nextLevel.name.Contains("(Clone)"))
+            {
+                int pos = nextLevel.name.IndexOf("(Clone)");
+                nextLevel.name = nextLevel.name.Remove(pos);
+            }
+            levels[0] = nextLevel;
+
+            tm.text = nextLevel.name;
+            nextLevel = Resources.Load($"Prefabs/Levels/Level {++nr}") as GameObject;
+            PlayerPrefs.SetInt("SavedLevel", nr-1);
+            PlayerPrefs.Save();
         }
     }
 
+    void LoadGame()
+    {
+        if (PlayerPrefs.HasKey("SavedLevel"))
+        {
+            nr = PlayerPrefs.GetInt("SavedLevel");
+            Debug.Log("Game data loaded!");
+        }
+        else
+            Debug.LogError("There is no save data!");
+    }
 
 }
