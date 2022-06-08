@@ -11,6 +11,7 @@ public class GetLevel : MonoBehaviour
     public List<GameObject> levels = new List<GameObject>();
     public TextMeshPro tm;
     public int nr;
+    public int actualLevel;
 
     public GameObject nextLevel;
     [SerializeField] private Transform spawnPoint;
@@ -77,16 +78,18 @@ public class GetLevel : MonoBehaviour
         }
     }
 
-    void LoadGame()
+    public void LoadGame()
     {
         if (PlayerPrefs.HasKey("SavedLevel"))
         {
             nr = PlayerPrefs.GetInt("SavedLevel");
+            actualLevel = nr;
             Debug.Log("Game data loaded!");
         }
         else
         {
             nr = 1;
+            actualLevel = nr;
             Debug.LogError("There is no save data!");
         }
 
