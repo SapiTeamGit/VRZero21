@@ -12,6 +12,7 @@ public class GetLevel : MonoBehaviour
     public TextMeshPro tm;
     public int nr;
     public int actualLevel;
+    public AudioSource GameOverAudio;
 
     public GameObject nextLevel;
     [SerializeField] private Transform spawnPoint;
@@ -50,6 +51,13 @@ public class GetLevel : MonoBehaviour
     public void Update()
     {
         CheckIfGameEnded();
+        if (ScoreManager.CheckIfGameOverByScoreValue() == false)
+        {//Loose
+            //Game Over zene
+            GameOverAudio.enabled = true ;
+            new WaitForSeconds(2);
+            GameOverAudio.enabled = false;
+        }
     }
 
     private void CheckIfGameEnded()
@@ -63,18 +71,11 @@ public class GetLevel : MonoBehaviour
             Destroy(levels[0]);
             nextLevel.transform.localScale = new Vector3(0.5f, 1f, 0.5f);
 
-            nextLevel = Instantiate(nextLevel, spawnPoint.position, spawnPoint.rotation);
-            if (nextLevel.name.Contains("(Clone)"))
-            {
-                int pos = nextLevel.name.IndexOf("(Clone)");
-                nextLevel.name = nextLevel.name.Remove(pos);
-            }
-            levels[0] = nextLevel;
+            //StartParticleSystem
+            //stop particle system after 2 sec
 
-            tm.text = nextLevel.name;
-            nextLevel = Resources.Load($"Prefabs/Levels/Level {++nr}") as GameObject;
-            PlayerPrefs.SetInt("SavedLevel", nr - 1);
-            PlayerPrefs.Save();
+            DoDelayAction(2);
+            
         }
     }
 
@@ -111,5 +112,44 @@ public class GetLevel : MonoBehaviour
 
         tm.text = nextLevel.name;
         nextLevel = Resources.Load($"Prefabs/Levels/Level {++nr}") as GameObject;
+    }
+
+    void DoDelayAction(float delayTime)
+    {
+        StartCoroutine(DelayAction(delayTime));
+    }
+
+    IEnumerator DelayAction(float delayTime)
+    {
+        //Wait for the specified delay time before continuing.
+        yield return new WaitForSeconds(delayTime);
+        nextLevel = Instantiate(nextLevel, spawnPoint.position, spawnPoint.rotation);
+        if (nextLevel.name.Contains("(Clone)"))
+        {
+            int pos = nextLevel.name.IndexOf("(Clone)");
+            nextLevel.name = nextLevel.name.Remove(pos);
+        }
+        levels[0] = nextLevel;
+
+        tm.text = nextLevel.name;
+        nextLevel = Resources.Load($"Prefabs/Levels/Level {++nr}") as GameObject;
+
+        if (nr == 11)
+        {
+            nr = 1;
+            actualLevel = nr;
+            Debug.Log("The game reseted the levels, there are no other levels");
+            PlayerPrefs.SetInt("SavedLevel", nr);
+            PlayerPrefs.Save();
+        }
+        else
+        {
+            
+            PlayerPrefs.SetInt("SavedLevel", nr - 1);
+            PlayerPrefs.Save();
+        }
+
+        
+        //Do the action after the delay time has finished.
     }
 }
