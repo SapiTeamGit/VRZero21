@@ -57,6 +57,8 @@ public class GetLevel : MonoBehaviour
             GameOverAudio.enabled = true ;
             new WaitForSeconds(2);
             GameOverAudio.enabled = false;
+            Destroy(levels[0]);
+            LoadGame();
         }
     }
 
@@ -71,6 +73,8 @@ public class GetLevel : MonoBehaviour
             Destroy(levels[0]);
             nextLevel.transform.localScale = new Vector3(0.5f, 1f, 0.5f);
 
+            //LoadGame
+            
             //StartParticleSystem
             //stop particle system after 2 sec
 
