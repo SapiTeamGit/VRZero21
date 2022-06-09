@@ -64,23 +64,33 @@ public class GetLevel : MonoBehaviour
 
     private void CheckIfGameEnded()
     {
-
-        //Debug.Log("The actual level is" + nr);
-        if (levels[0].transform.childCount == 0)
+        try
         {
+            //Debug.Log("The actual level is" + nr);
+            if (levels[0].transform.childCount == 0)
+            {
 
-            Debug.Log("Game Ended!");
-            Destroy(levels[0]);
-            nextLevel.transform.localScale = new Vector3(0.5f, 1f, 0.5f);
+                Debug.Log("Game Ended!");
+                Destroy(levels[0]);
+                nextLevel.transform.localScale = new Vector3(0.5f, 1f, 0.5f);
 
-            //LoadGame
+                //StartParticleSystem
+                //stop particle system after 2 sec
+
+                DoDelayAction(2);
             
-            //StartParticleSystem
-            //stop particle system after 2 sec
-
-            DoDelayAction(2);
-            
+            }
         }
+        catch
+        {
+            if(nr == 11)
+            {
+                nr = 1;
+                new WaitForSeconds(2);
+                InitializeLevel();
+            }
+        }
+        
     }
 
     public void LoadGame()
@@ -127,7 +137,7 @@ public class GetLevel : MonoBehaviour
     {
         //Wait for the specified delay time before continuing.
         yield return new WaitForSeconds(delayTime);
-        if (nr == 10)
+        if (++nr == 11)
         {
             nr = 1;
             actualLevel = nr;
