@@ -127,24 +127,14 @@ public class GetLevel : MonoBehaviour
     {
         //Wait for the specified delay time before continuing.
         yield return new WaitForSeconds(delayTime);
-        nextLevel = Instantiate(nextLevel, spawnPoint.position, spawnPoint.rotation);
-        if (nextLevel.name.Contains("(Clone)"))
-        {
-            int pos = nextLevel.name.IndexOf("(Clone)");
-            nextLevel.name = nextLevel.name.Remove(pos);
-        }
-        levels[0] = nextLevel;
-
-        tm.text = nextLevel.name;
-        nextLevel = Resources.Load($"Prefabs/Levels/Level {++nr}") as GameObject;
-
-        if (nr == 11)
+        if (nr == 10)
         {
             nr = 1;
             actualLevel = nr;
             Debug.Log("The game reseted the levels, there are no other levels");
             PlayerPrefs.SetInt("SavedLevel", nr);
             PlayerPrefs.Save();
+            
         }
         else
         {
@@ -153,7 +143,6 @@ public class GetLevel : MonoBehaviour
             PlayerPrefs.Save();
         }
 
-        
-        //Do the action after the delay time has finished.
+        InitializeLevel();
     }
 }
