@@ -13,6 +13,7 @@ public class GetLevel : MonoBehaviour
     public int nr;
     public int actualLevel;
     public AudioSource GameOverAudio;
+    public ParticleSystem ParticleSystemWin;
 
     public GameObject nextLevel;
     [SerializeField] private Transform spawnPoint;
@@ -52,14 +53,26 @@ public class GetLevel : MonoBehaviour
     {
         CheckIfGameEnded();
         if (ScoreManager.CheckIfGameOverByScoreValue() == false)
-        {//Loose
-            //Game Over zene
-            GameOverAudio.enabled = true ;
-            new WaitForSeconds(2);
-            GameOverAudio.enabled = false;
-            Destroy(levels[0]);
-            LoadGame();
+        {
+            StartCoroutine(GameOver());
         }
+    }
+
+    IEnumerator Waiter()
+    {
+        yield return new WaitForSeconds(2);
+        InitializeLevel();
+    }
+
+    IEnumerator GameOver()
+    {
+        Debug.Log("Game Over Called");
+        GameOverAudio.enabled = true;
+        yield return new WaitForSeconds(2);
+        //Game Over zene
+        GameOverAudio.enabled = false;
+        Destroy(levels[0]);
+        LoadGame();
     }
 
     private void CheckIfGameEnded()
@@ -75,6 +88,7 @@ public class GetLevel : MonoBehaviour
                 nextLevel.transform.localScale = new Vector3(0.5f, 1f, 0.5f);
 
                 //StartParticleSystem
+                ParticleSystemWin.Play();
                 //stop particle system after 2 sec
 
                 DoDelayAction(2);
@@ -86,8 +100,7 @@ public class GetLevel : MonoBehaviour
             if(nr == 11)
             {
                 nr = 1;
-                new WaitForSeconds(2);
-                InitializeLevel();
+                StartCoroutine(Waiter());
             }
         }
         
@@ -137,7 +150,7 @@ public class GetLevel : MonoBehaviour
     {
         //Wait for the specified delay time before continuing.
         yield return new WaitForSeconds(delayTime);
-        if (++nr == 11)
+        if (nr == 11)
         {
             nr = 1;
             actualLevel = nr;

@@ -16,10 +16,17 @@ public class FlipCardFromUnder : MonoBehaviour
         }
         this.gameObject.SetActive(false);
         Destroy(this.gameObject);
+        waiter();
     }
 
     private void OnDestroy()
     {
         Destroy(transform.parent.gameObject);
+    }
+
+    IEnumerator waiter()
+    {
+        yield return new WaitForSeconds(2);
+        
     }
 }
