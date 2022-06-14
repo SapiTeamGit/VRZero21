@@ -82,17 +82,13 @@ public class GetLevel : MonoBehaviour
             //Debug.Log("The actual level is" + nr);
             if (levels[0].transform.childCount == 0)
             {
-
                 Debug.Log("Game Ended!");
                 Destroy(levels[0]);
                 nextLevel.transform.localScale = new Vector3(0.5f, 1f, 0.5f);
-
                 //StartParticleSystem
                 ParticleSystemWin.Play();
                 //stop particle system after 2 sec
-
                 DoDelayAction(2);
-            
             }
         }
         catch
@@ -103,7 +99,6 @@ public class GetLevel : MonoBehaviour
                 StartCoroutine(Waiter());
             }
         }
-        
     }
 
     public void LoadGame()
@@ -120,7 +115,6 @@ public class GetLevel : MonoBehaviour
             actualLevel = nr;
             Debug.LogError("There is no save data!");
         }
-
         InitializeLevel();
     }
 
@@ -128,7 +122,6 @@ public class GetLevel : MonoBehaviour
     {
         nextLevel = Resources.Load("Prefabs/Levels/Level " + nr) as GameObject;
         nextLevel.transform.localScale = new Vector3(0.5f, 1f, 0.5f);
-
         nextLevel = Instantiate(nextLevel, spawnPoint.position, spawnPoint.rotation);
         if (nextLevel.name.Contains("(Clone)"))
         {
@@ -157,15 +150,12 @@ public class GetLevel : MonoBehaviour
             Debug.Log("The game reseted the levels, there are no other levels");
             PlayerPrefs.SetInt("SavedLevel", nr);
             PlayerPrefs.Save();
-            
         }
         else
         {
-            
             PlayerPrefs.SetInt("SavedLevel", nr - 1);
             PlayerPrefs.Save();
         }
-
         InitializeLevel();
     }
 }

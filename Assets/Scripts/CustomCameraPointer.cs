@@ -28,7 +28,6 @@ using static UnityEngine.EventSystems.EventTrigger;
 public class CustomCameraPointer : MonoBehaviour
 {
     private const float _maxDistance = 10;
-    private GameObject _gazedAtObject = null;
     private GameObject newObject = null;
     private GameObject oldObject = null;
     private EventTrigger trigger;
@@ -74,10 +73,5 @@ public class CustomCameraPointer : MonoBehaviour
             trigger = null;
         }
 
-        // Checks for screen touches.
-        if (Google.XR.Cardboard.Api.IsTriggerPressed)
-        {
-            _gazedAtObject?.SendMessage("OnPointerClick");
-        }
     }
 }

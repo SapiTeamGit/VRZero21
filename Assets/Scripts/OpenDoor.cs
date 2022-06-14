@@ -7,8 +7,6 @@ public class OpenDoor : MonoBehaviour
     Animator animator;
     Animator playerAnimator;
     bool triggered;
-
-
     // Start is called before the first frame update
     void Start()
     {

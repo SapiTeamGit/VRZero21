@@ -9,7 +9,6 @@ public class FlipCardFromUnder : MonoBehaviour
     // Update is called once per frame
     public void FlipTopDeleteBottom()
     {
-
         if (!gameObject.transform.parent.parent.name.Contains("Level"))
         {
             gameObject.transform.parent.parent.GetChild(0).GetComponent<Animator>().SetTrigger("CardFromTopSelected");

@@ -7,22 +7,10 @@ public class ScoreManager : MonoBehaviour
 {
     static int score = 10;
 
-    GetLevel getLevel;
-
-    public GameObject nextLevel;
-    [SerializeField] private Transform spawnPoint;
-    public List<GameObject> actualLevel = new List<GameObject>();
-
     // Start is called before the first frame update
     void Start()
     {
         Screen.brightness = 1;
-        getLevel = GameObject.FindGameObjectWithTag("Level").GetComponent<GetLevel>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 
     public void ModifyScore(GameObject card)
